@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/default.mk
+
+%:
+	dh $@
+
+INSTALL_DESTDIR = $(CURDIR)/debian/$(DEB_SOURCE)/
+
+execute_after_dh_install:
+	./install.sh "${INSTALL_DESTDIR}/usr"
